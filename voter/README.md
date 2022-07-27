@@ -14,4 +14,4 @@
 - `cd voter`
 - run `truffle migrate --network ganache`. This will deploy voter contract to ganache (local ethereum network)
 - run `npm install`. This will install required java scripts 
-- run `node src/js/Interact_Voter.js`. Console logs will prove if the deployment and interaction was successful. 
+- run `node src/js/VoterInteract.js`. Console logs will prove if the deployment and interaction was successful. 
