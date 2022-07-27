@@ -5,8 +5,8 @@ let web3 = new Web3();
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:7545'));
 
 // update before running. 
-let contractAddress = "0xeA62AF408F4270D4244a30aB1eC3Ef333bDe342E";
-let fromAddress = "0x9d713feded63A1e8D4D799F6E7A3fED79A13AeEe";
+let contractAddress = "0x7503D7d8b2f9d8e8C770de7D8d6Ba37c86f577Ab";
+let fromAddress = "0x7a7fcBa9268c84713dC31ad2362AD2be54ddf6AA";
 
 const contract = JSON.parse(fs.readFileSync('./build/contracts/Voter.json', 'utf8'));
 let abi = JSON.stringify(contract.abi);
@@ -24,7 +24,7 @@ interact()
 
 async function interact() {
      console.log("Adding candidate 'Barak Obama'");
-     await voter.methods.addCandidate("Barak Obama Hanks").send({from: fromAddress, gas: 600000});
+     await voter.methods.addCandidate("Barak Obama").send({from: fromAddress, gas: 600000});
 
     console.log("Adding candidate 'Joe Biden'");
     await voter.methods.addCandidate("Joe Biden").send({from: fromAddress, gas: 600000}); 

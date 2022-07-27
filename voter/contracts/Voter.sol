@@ -2,7 +2,7 @@
 pragma solidity 0.8.15;
 
 contract Voter {
-    struct CandiatePosition {
+    struct CandidatePosition {
         uint256 index;
         bool exists;
         uint256 voteCount;
@@ -10,16 +10,16 @@ contract Voter {
 
     mapping(address => bool) public hasVoted;
 
-    mapping(string => CandiatePosition) public positionOfCandiates;
+    mapping(string => CandidatePosition) public positionOfCandiates;
 
     string[] public candidates;
 
     function addCandidate(string memory candidate) public {
-        CandiatePosition memory candidatesPos = positionOfCandiates[candidate];
+        CandidatePosition memory candidatesPos = positionOfCandiates[candidate];
         require(!candidatesPos.exists, "Candidate already exist");
         require(candidates.length < 10, "Maximum 10 Candidates allowed");
         candidates.push(candidate);
-        CandiatePosition memory candiatePosition = CandiatePosition({
+        CandidatePosition memory candiatePosition = CandidatePosition({
             index: candidates.length,
             exists: true,
             voteCount: 0
@@ -34,7 +34,7 @@ contract Voter {
             "Maximum 10 Candidates allowed for Election"
         );
 
-        CandiatePosition memory candidatesPosition = positionOfCandiates[
+        CandidatePosition memory candidatesPosition = positionOfCandiates[
             candidate
         ];
         require(
